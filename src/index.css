@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* CyberFest Dark Theme - Deep Navy/Black with Neon Accents */
+    --background: 222 47% 5%;
+    --foreground: 200 100% 95%;
+
+    --card: 222 50% 8%;
+    --card-foreground: 200 100% 95%;
+
+    --popover: 222 50% 8%;
+    --popover-foreground: 200 100% 95%;
+
+    /* Primary: Electric Cyan */
+    --primary: 187 100% 50%;
+    --primary-foreground: 222 47% 5%;
+
+    /* Secondary: Matrix Green */
+    --secondary: 140 100% 50%;
+    --secondary-foreground: 222 47% 5%;
+
+    --muted: 222 30% 15%;
+    --muted-foreground: 200 30% 60%;
+
+    /* Accent: Bright Blue */
+    --accent: 210 100% 60%;
+    --accent-foreground: 222 47% 5%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 50% 20%;
+    --input: 210 50% 15%;
+    --ring: 187 100% 50%;
+
+    --radius: 0.5rem;
+
+    /* Custom Cyber Colors */
+    --cyber-dark: 222 47% 5%;
+    --cyber-navy: 222 50% 10%;
+    --cyber-panel: 222 45% 12%;
+    --cyber-cyan: 187 100% 50%;
+    --cyber-green: 140 100% 50%;
+    --cyber-blue: 210 100% 60%;
+    --cyber-glow: 187 100% 70%;
+
+    --sidebar-background: 222 50% 8%;
+    --sidebar-foreground: 200 100% 95%;
+    --sidebar-primary: 187 100% 50%;
+    --sidebar-primary-foreground: 222 47% 5%;
+    --sidebar-accent: 222 45% 15%;
+    --sidebar-accent-foreground: 200 100% 95%;
+    --sidebar-border: 210 50% 20%;
+    --sidebar-ring: 187 100% 50%;
+  }
+
+  .dark {
+    --background: 222 47% 5%;
+    --foreground: 200 100% 95%;
+    --card: 222 50% 8%;
+    --card-foreground: 200 100% 95%;
+    --popover: 222 50% 8%;
+    --popover-foreground: 200 100% 95%;
+    --primary: 187 100% 50%;
+    --primary-foreground: 222 47% 5%;
+    --secondary: 140 100% 50%;
+    --secondary-foreground: 222 47% 5%;
+    --muted: 222 30% 15%;
+    --muted-foreground: 200 30% 60%;
+    --accent: 210 100% 60%;
+    --accent-foreground: 222 47% 5%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 210 50% 20%;
+    --input: 210 50% 15%;
+    --ring: 187 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-rajdhani;
+    background: linear-gradient(135deg, 
+      hsl(222 47% 5%) 0%, 
+      hsl(222 50% 8%) 50%, 
+      hsl(222 47% 5%) 100%);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* Cyber Grid Background */
+  .cyber-grid {
+    background-image: 
+      linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: grid-move 20s linear infinite;
+  }
+
+  @keyframes grid-move {
+    0% { background-position: 0 0; }
+    100% { background-position: 50px 50px; }
+  }
+
+  /* Glowing Text Effect */
+  .text-glow {
+    text-shadow: 
+      0 0 10px hsl(var(--cyber-cyan)),
+      0 0 20px hsl(var(--cyber-cyan)),
+      0 0 40px hsl(var(--cyber-cyan) / 0.5);
+  }
+
+  .text-glow-green {
+    text-shadow: 
+      0 0 10px hsl(var(--cyber-green)),
+      0 0 20px hsl(var(--cyber-green)),
+      0 0 40px hsl(var(--cyber-green) / 0.5);
+  }
+
+  /* Neon Border */
+  .neon-border {
+    border: 1px solid hsl(var(--cyber-cyan) / 0.3);
+    box-shadow: 
+      0 0 10px hsl(var(--cyber-cyan) / 0.2),
+      inset 0 0 20px hsl(var(--cyber-cyan) / 0.05);
+  }
+
+  .neon-border-green {
+    border: 1px solid hsl(var(--cyber-green) / 0.3);
+    box-shadow: 
+      0 0 10px hsl(var(--cyber-green) / 0.2),
+      inset 0 0 20px hsl(var(--cyber-green) / 0.05);
+  }
+
+  /* Cyber Card */
+  .cyber-card {
+    background: linear-gradient(135deg, 
+      hsl(var(--cyber-panel)) 0%, 
+      hsl(var(--cyber-navy)) 100%);
+    border: 1px solid hsl(var(--cyber-cyan) / 0.2);
+    box-shadow: 
+      0 0 20px hsl(var(--cyber-cyan) / 0.1),
+      inset 0 1px 0 hsl(var(--cyber-cyan) / 0.1);
+    backdrop-filter: blur(10px);
+  }
+
+  .cyber-card:hover {
+    border-color: hsl(var(--cyber-cyan) / 0.5);
+    box-shadow: 
+      0 0 30px hsl(var(--cyber-cyan) / 0.2),
+      inset 0 1px 0 hsl(var(--cyber-cyan) / 0.2);
+  }
+
+  /* Glitch Effect */
+  .glitch {
+    position: relative;
+    animation: glitch 3s infinite;
+  }
+
+  @keyframes glitch {
+    0%, 90%, 100% { transform: translate(0); }
+    91% { transform: translate(-2px, 1px); }
+    92% { transform: translate(2px, -1px); }
+    93% { transform: translate(-1px, 2px); }
+    94% { transform: translate(1px, -2px); }
+  }
+
+  /* Scan Line Effect */
+  .scan-lines::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.1) 2px,
+      rgba(0, 0, 0, 0.1) 4px
+    );
+    pointer-events: none;
+  }
+
+  /* Terminal Cursor */
+  .terminal-cursor::after {
+    content: '_';
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  /* Floating Animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  /* Pulse Glow */
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(var(--cyber-cyan) / 0.3);
+    }
+    50% { 
+      box-shadow: 0 0 40px hsl(var(--cyber-cyan) / 0.6);
+    }
+  }
+
+  /* Matrix Rain Effect */
+  .matrix-bg {
+    background: 
+      radial-gradient(ellipse at top, hsl(var(--cyber-navy)) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom, hsl(var(--cyber-dark)) 0%, transparent 50%);
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    background: linear-gradient(135deg, 
+      hsl(var(--cyber-cyan)) 0%, 
+      hsl(var(--cyber-blue)) 50%,
+      hsl(var(--cyber-cyan)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-green {
+    background: linear-gradient(135deg, 
+      hsl(var(--cyber-green)) 0%, 
+      hsl(var(--cyber-cyan)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Section Divider */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      hsl(var(--cyber-cyan) / 0.5) 50%, 
+      transparent 100%);
+  }
+
+  /* 3D Card Effect */
+  .card-3d {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+  }
+
+  .card-3d:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) translateZ(20px);
+  }
+
+  /* Hexagon Pattern */
+  .hex-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%2300f0ff' fill-opacity='0.03'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+}
+
+@layer utilities {
+  .font-orbitron {
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .font-rajdhani {
+    font-family: 'Rajdhani', sans-serif;
+  }
+
+  .font-mono-tech {
+    font-family: 'Share Tech Mono', monospace;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
